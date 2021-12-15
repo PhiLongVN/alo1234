@@ -1,0 +1,291 @@
+@import url("https://fonts.googleapis.com/css2?family=Kumbh+Sans:wght@400;700&family=Manrope:wght@500;700&display=swap");
+:root {
+  --dark: hsl(217, 19%, 35%);
+  --dark2: hsl(214, 17%, 51%);
+  --blue: hsl(212, 23%, 69%);
+  --blue2: hsl(210, 46%, 95%);
+}
+
+html {
+  box-sizing: border-box;
+}
+* {
+  margin: 0;
+  padding: 0;
+}
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+}
+input,
+textarea,
+select,
+button {
+  outline: none;
+}
+input {
+  line-height: normal;
+}
+label,
+button {
+  cursor: pointer;
+}
+a {
+  text-decoration: none;
+}
+img {
+  display: block;
+  max-width: 100%;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  flex-direction: column;
+  font-family: "Kumbh Sans", sans-serif;
+  background: var(--blue);
+}
+
+.cotainer {
+  max-width: 800px;
+  display: flex;
+  flex-direction: row;
+  margin: 3rem;
+  background: var(--blue2);
+  border-radius: 15px;
+}
+.cotainer .block-img {
+  overflow: hidden;
+  border-radius: 15px 0 0 15px;
+}
+.cotainer .block-img img {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+}
+
+.cotainer .block-text {
+  padding: 0;
+  text-align: left;
+}
+
+.text-top {
+  padding: 1rem 2rem 0.8rem;
+}
+.text-top h2 {
+  font-size: 1.3rem;
+  padding-bottom: 0.5rem;
+  opacity: 0.7;
+}
+
+.text-top p {
+  font-size: 16px;
+  line-height: 1.4;
+  opacity: 0.8;
+}
+
+.text-bot {
+  /* margin-top: 1rem; */
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  position: relative;
+  padding: 1.2rem 2rem;
+}
+
+.text-bot .info-avt {
+  width: 50px;
+  overflow: hidden;
+  height: 50px;
+  border-radius: 100rem;
+  border: solid 2px rgba(0, 0, 0, 0.8);
+  height: 100%;
+}
+
+.text-bot .text-bot-info {
+  display: flex;
+  gap: 0.8rem;
+  align-items: center;
+}
+
+.icon .share {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 30px;
+  height: 30px;
+  border-radius: 100rem;
+  overflow: hidden;
+  background: var(--dark);
+}
+.icon {
+  position: relative;
+  z-index: 13;
+}
+
+/* .icon:before {
+  content: "";
+  position: absolute;
+  max-width: 500px;
+  background-color: red;
+  height: 100%;
+  padding: 2rem;
+  right: 0px;
+  border-radius: 0px 0 15px 15px;
+  top: 0%;
+} */
+
+.click {
+  display: flex;
+  visibility: hidden;
+  gap: 0.5rem;
+  background-color: var(--dark2);
+  padding: 0.7rem 1.5rem;
+  border-radius: 15px;
+  align-items: center;
+  position: absolute;
+  right: -35px;
+  top: -50%;
+  z-index: 10;
+  transform: translateY(20px);
+  transition: all 0.1s ease-in;
+  opacity: 0;
+  padding: 1rem;
+}
+
+.click.active {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0px);
+}
+
+/* .icon:hover ~ .click {
+  display: inline-flex;
+  transform: translateY(0px);
+} */
+.icon:hover {
+  opacity: 0.8;
+}
+
+.click span:hover {
+  opacity: 1;
+}
+
+.click a:hover {
+  opacity: 0.8;
+}
+
+/* .share::before {
+  content: "";
+  position: absolute;
+  background-color: red;
+  width: 100px;
+  height: 20px;
+  top: -60%;
+} */
+
+.click:before {
+  content: "";
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  transform: rotate(45deg) translate(-50%, -50%);
+  border-radius: 5px;
+  background-color: var(--dark2);
+  left: 45%;
+  top: calc(100% + 2px);
+}
+
+.click span {
+  color: white;
+  opacity: 0.5;
+  font-weight: bold;
+  text-transform: uppercase;
+  user-select: none;
+}
+
+.click a {
+  margin: 0;
+  padding: 0;
+  color: white;
+  font-size: 1.2rem;
+}
+
+.info-name p {
+  text-transform: uppercase;
+  font-weight: bold;
+}
+
+@media screen and (max-width: 768px) {
+  .cotainer {
+    flex-direction: column;
+    overflow: hidden;
+  }
+  .cotainer .block-img {
+    border-radius: 15px 15px 0 0;
+  }
+
+  .click:before {
+    display: none;
+  }
+
+  .click {
+    display: flex;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    padding: 2rem;
+    right: 0px;
+    border-radius: 0px 0 15px 15px;
+    top: 0%;
+    transform: translateY(100%);
+    /* padding-top: 1.5rem; */
+    gap: 1.3rem;
+    font-size: 1.2rem;
+    z-index: 11;
+    position: absolute;
+    transition: all 0.3s ease;
+    opacity: 0;
+  }
+
+  .click.active {
+    opacity: 1;
+    transform: translateY(0%);
+  }
+  /* .icon:hover ~ .click {
+    top: 0%;
+  } */
+
+  .click a {
+    font-size: 1.5rem;
+  }
+}
+
+@media screen and (max-width: 424px) {
+  .info-name span {
+    font-size: 0.7rem;
+  }
+  .click {
+    gap: 0.8rem;
+  }
+  .click {
+    padding: 0.4rem 1.5rem;
+  }
+
+  .text-bot span {
+    font-size: 1rem;
+  }
+
+  .text-bot a {
+    font-size: 1.1rem;
+  }
+
+  /* .text-bot{
+  padding: 2rem;
+} */
+}
